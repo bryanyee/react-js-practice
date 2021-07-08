@@ -1,1 +1,3 @@
-# react-js-practice
+## React & JS Practice
+
+`yarn start`
