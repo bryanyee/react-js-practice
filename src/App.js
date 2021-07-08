@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React, { Fragment } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+
 import styles from './App.module.css';
+import InfiniteScroll from './InfiniteScroll/Main.js';
+import Links from './Links';
 
 function App() {
   return (
     <div className={styles.app}>
-      <header className={styles['app-header']}>
-        <img src={logo} className={styles['app-logo']} alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className={styles['app-link']}
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className={styles['app-container']}>
+        <BrowserRouter basename="/">
+          <Fragment>
+            <Route exact path="/" component={() => <div />} />
+            <Route path="/infinite_scroll" component={InfiniteScroll} />
+            <Route component={Links} />
+          </Fragment>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }
