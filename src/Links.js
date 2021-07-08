@@ -8,8 +8,8 @@ const Links = () => (
     <Link className="d-block" to={{ pathname: '/' }}>
       /
     </Link>
-    <Link className="d-block" to={{ pathname: '/infinite_scroll' }}>
-      Infinite Scroll
+    <Link className="d-block" to={{ pathname: '/simple_hooks' }}>
+      Simple Hooks
     </Link>
   </div>
 );

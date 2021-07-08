@@ -1,8 +1,8 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import styles from './App.module.css';
-import InfiniteScroll from './InfiniteScroll/Main.js';
+import SimpleHooks from './SimpleHooks/SimpleHooks.js';
 import Links from './Links';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
         <BrowserRouter basename="/">
           <Fragment>
             <Route exact path="/" component={() => <div />} />
-            <Route path="/infinite_scroll" component={InfiniteScroll} />
+            <Route path="/simple_hooks" component={SimpleHooks} />
             <Route component={Links} />
           </Fragment>
         </BrowserRouter>
