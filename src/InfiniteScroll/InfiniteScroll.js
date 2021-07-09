@@ -22,7 +22,7 @@ function InfiniteScroll() {
   }
 
   // Throttling in React: https://dev.to/pulkitnagpal/using-throttling-and-debouncing-with-react-hooks-57f1
-  // 1) *Throttle inside useEffect
+  // 1) *useEffect - using this approach because the event listener is handled inside useEffect
   // 2) useCallback or useRef
   useEffect(() => {
     const debouncedScrollHandler = debounce(scrollHandler, 200);

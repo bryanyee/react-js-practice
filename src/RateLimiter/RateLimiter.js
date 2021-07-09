@@ -12,8 +12,8 @@ function RateLimiter() {
   }
 
   // Throttling in React: https://dev.to/pulkitnagpal/using-throttling-and-debouncing-with-react-hooks-57f1
-  // 1) Throttle inside useEffect
-  // 2) *useCallback or useRef
+  // 1) useEffect
+  // 2) *useCallback or useRef - using this approach because the click handler is *not set up inside useEffect
 
   // Limit the incrementer to 4 hits every 5 sec.
   const rateLimitedIncrement = useCallback(rateLimit(increment2, 4, 5000), []);
