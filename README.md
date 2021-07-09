@@ -1,3 +1,8 @@
 ## React & JS Practice
 
-`yarn start`
+Repo for practice with React and JavaScript.
+
+```
+yarn install
+yarn start
+```
