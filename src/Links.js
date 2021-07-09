@@ -20,6 +20,9 @@ const Links = () => (
     <Link className="d-block" to={{ pathname: '/rate_limiter' }}>
       Rate Limiter
     </Link>
+    <Link className="d-block" to={{ pathname: '/progress_bars' }}>
+      Progress Bars
+    </Link>
   </div>
 );
 
