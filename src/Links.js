@@ -14,6 +14,9 @@ const Links = () => (
     <Link className="d-block" to={{ pathname: '/infinite_scroll' }}>
       Infinite Scroll
     </Link>
+    <Link className="d-block" to={{ pathname: '/table' }}>
+      Table
+    </Link>
   </div>
 );
 
