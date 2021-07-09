@@ -9,7 +9,8 @@
   display: flex;
   font-size: calc(10px + 2vmin);
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 20px;
   min-height: 100vh;
   overflow: hidden;
 }
