@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import styles from './App.module.css';
 import InfiniteScroll from './InfiniteScroll/InfiniteScroll.js';
 import Links from './Links';
+import RateLimiter from './RateLimiter/RateLimiter.js';
 import SimpleHooks from './SimpleHooks/SimpleHooks.js';
 import Table from './Table/Table.js';
 
@@ -15,6 +16,7 @@ function App() {
           <Fragment>
             <Route exact path="/" component={() => <div />} />
             <Route path="/infinite_scroll" component={InfiniteScroll} />
+            <Route path="/rate_limiter" component={RateLimiter} />
             <Route path="/simple_hooks" component={SimpleHooks} />
             <Route path="/table" component={Table} />
             <Route component={Links} />

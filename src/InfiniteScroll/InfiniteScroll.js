@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { debounce } from 'lodash';
 
 import styles from './InfiniteScroll.module.css';
@@ -15,12 +15,15 @@ function InfiniteScroll() {
     if (isAtPageBottom && gifUrls.length >= 0) {
       const searchText = searchInput.current.value;
       giphyService.current.fetch(searchText)
-        .then((urls) => {
-          setGifUrls([...gifUrls, ...urls]);
+        .then((newUrls) => {
+          setGifUrls((oldUrls) => [...oldUrls, ...newUrls]);
         }); 
     }
   }
 
+  // Throttling in React: https://dev.to/pulkitnagpal/using-throttling-and-debouncing-with-react-hooks-57f1
+  // 1) *Throttle inside useEffect
+  // 2) useCallback or useRef
   useEffect(() => {
     const debouncedScrollHandler = debounce(scrollHandler, 200);
     window.addEventListener('scroll', debouncedScrollHandler);
@@ -28,10 +31,7 @@ function InfiniteScroll() {
     return () => {
       window.removeEventListener('scroll', debouncedScrollHandler)
     }
-  // Re-assign the scroll handler when `gifUrls` change,
-  // so that `setGifUrls` extends upon updated state.
-  // Other options with `useCallback`: https://dev.to/pulkitnagpal/using-throttling-and-debouncing-with-react-hooks-57f1
-  }, [gifUrls]);
+  }, []);
 
   useEffect(() => {
     giphyService.current = new GiphyService({ apiKey: 'jUzdRpetkqW3OS260Xfi9eBzkVN0welj'});
