@@ -5,14 +5,15 @@ function SimpleHooks() {
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setCounter(5);
-    }, 4000);
+      setCounter(counter + 1);
+    }, 1000);
 
-    return (() => {
-      console.log('Dismounted simple hooks');
+    return () => {
       clearTimeout(timeout);
-    });
-  }, []);
+    };
+  }, [counter]);
+
+  useEffect(() => () => console.log('Dismounted simple hooks'), []);
 
   return (
     <div>
