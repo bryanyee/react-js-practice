@@ -1,6 +1,7 @@
 .progress-container {
   background-color: gray;
   height: 24px;
+  position: relative;
   width: 200px;
 }
 
@@ -8,4 +9,13 @@
   background-color: green;
   height: 100%;
   width: 0%;
+}
+
+.progress-text {
+  bottom: 0;
+  font-size: 12pt;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
