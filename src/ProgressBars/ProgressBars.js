@@ -13,13 +13,13 @@ class Bar {
 
 function ProgressBars() {
   const [bars, setBars] = useState([]);
-  const barsRef = useRef([]);
+  const barsByIdRef = useRef({}); // { barId: <bar> }
   const secondsInputRef = useRef(null);
 
   useEffect(() => {
     const nextBar = bars.find((bar) => !bar.isComplete);
     if (nextBar) {
-      const barComponent = barsRef.current[nextBar.id]; // The bar's id matches its position
+      const barComponent = barsByIdRef.current[nextBar.id];
       barComponent.start();
     }
   }, [bars]);
@@ -47,13 +47,15 @@ function ProgressBars() {
       <input id={styles['seconds-input']} ref={secondsInputRef} type="number" />
       <br />
       <button className="my-2" onClick={addBar}>Add Bar</button>
-      {bars.map((bar, i) => (
+      {bars.map((bar) => (
         <ProgressBar
           className="mb-2"
           id={bar.id}
           key={bar.id}
           onEnd={onProgressEnd}
-          ref={(el) => (barsRef.current[i] = el)} // https://stackoverflow.com/a/57810772
+          ref={(el) => { // https://reactjs.org/docs/refs-and-the-dom.html#callback-refs
+            barsByIdRef.current[bar.id] = el;
+          }}
           totalMs={bar.duration * 1000}
         />  
       ))}
